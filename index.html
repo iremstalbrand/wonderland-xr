@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wonderland Test</title>
-    <!-- A-Frame'i CDN'den çağırıyoruz, indirmeye gerek yok -->
+    <!-- A-Frame'i CDN call, no need to download -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   </head>
   <body>
-    <!-- 3D sahne buradan başlıyor -->
+    <!-- 3D scene begins here -->
     <a-scene>
-      <!-- modeli burada tanımlıyoruz -->
+      <!-- model -->
       <a-assets>
         <a-asset-item id="myModel" src="clock.glb"></a-asset-item>
       </a-assets>
 
-      <!-- zemin (greybox: sade gri düzlem) -->
+      <!-- ground (greybox) -->
       <a-plane
         position="0 0 0"
         rotation="-90 0 0"
@@ -24,12 +24,12 @@
         color="#444"
       ></a-plane>
 
-      <!-- birkaç gri kutu (ileride objelerin yerine geçecek) -->
+      <!-- gray boxes (will switch with 3D assets later) -->
       <a-box position="-1.5 0.5 -3" color="#888"></a-box>
       <a-box position="0 0.5 -4" color="#999"></a-box>
       <a-box position="1.5 0.5 -3" color="#888"></a-box>
 
-      <!-- saat modeli (tıklanabilir) -->
+      <!-- clock model (clickable) -->
       <a-entity
         id="clock"
         class="clickable"
@@ -39,7 +39,7 @@
         rotation="0 90 0"
       ></a-entity>
 
-      <!-- kamera + cursor + kaygı yazısı -->
+      <!-- camera + cursor + text -->
       <a-entity camera look-controls wasd-controls position="0 1.6 0">
         <a-cursor
           raycaster="objects: .clickable"
@@ -48,7 +48,7 @@
         >
         </a-cursor>
 
-        <!-- kaygı cümlesinin görüneceği yer (başta boş) -->
+        <!-- anxiety text (empty in the beginnig) -->
         <a-text
           id="anxietyText"
           value=""
@@ -59,20 +59,20 @@
         ></a-text>
       </a-entity>
 
-      <!-- ışık -->
+      <!-- light -->
       <a-light type="ambient" color="#bbb"></a-light>
       <a-light type="point" intensity="0.6" position="2 4 4"></a-light>
 
-      <!-- gökyüzü / arka plan rengi -->
+      <!-- backround color -->
       <a-sky color="#222"></a-sky>
     </a-scene>
 
-    <!-- etkileşim kodu -->
+    <!-- interaction -->
     <script>
       document.querySelector("#clock").addEventListener("click", function () {
         var text = document.querySelector("#anxietyText");
         text.setAttribute("value", "I'm running out of time.");
-        // 4 saniye sonra yazı kaybolsun
+
         setTimeout(function () {
           text.setAttribute("value", "");
         }, 4000);
