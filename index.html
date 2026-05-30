@@ -14,6 +14,10 @@
         <a-asset-item id="rabbit-model" src="assets/rabbit/scene.gltf"></a-asset-item>
         <a-asset-item id="delight-model" src="assets/delight/scene.gltf"></a-asset-item>
         <a-asset-item id="madhatter-model" src="assets/madhatter/scene.gltf"></a-asset-item>
+        <a-asset-item id="mirror-model" src="assets/mirror/scene.gltf"></a-asset-item>
+        <a-asset-item id="crypt-model" src="assets/crypt/scene.gltf"></a-asset-item>
+        <a-asset-item id="throne-model" src="assets/throne/scene.gltf"></a-asset-item>
+    
       </a-assets>
 
       <a-entity
@@ -25,17 +29,36 @@
       </a-entity>
       <a-entity
           gltf-model="#delight-model"
-          position="-2 0 -3"
+          position="-0.8 2 -3"
           scale="0.5 0.5 0.5"
           class="clickable">
         </a-entity>
        <a-entity
         gltf-model="#madhatter-model"
         position="2 1 -3"
-        scale="2 2 2"
+        scale="1 2 2"
         rotation="0 -90 0 "
         class="clickable">
       </a-entity>
+      <a-entity
+        gltf-model="#mirror-model"
+        position="0 0 -6.5"
+        scale="0.7 0.5 0.3"
+        class="clickable">
+      </a-entity>
+      <a-entity
+        gltf-model="#crypt-model"
+        position="-5 0 -5"
+        scale="19 19 19"
+        class="clickable">
+      </a-entity>
+      <a-entity
+      gltf-model="#throne-model"
+      position="-2 0 -4"
+      scale="0.005 0.005 0.005"
+      class="clickable">
+    </a-entity>
+
 
       <a-plane position="0 0 0" rotation="-90 0 0" width="14" height="14" color="#1a0f0a"></a-plane>
       <a-plane position="0 4 0" rotation="90 0 0" width="14" height="14" color="#0d0820"></a-plane>
