@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,75 +6,236 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene fog="type: exponential; color: #1a0a2e; density: 0.04"
-             cursor="rayOrigin: mouse"
-             raycaster="objects: .clickable">
-
+    <a-scene
+      fog="type: exponential; color: #1a0a2e; density: 0.04"
+      cursor="rayOrigin: mouse"
+      raycaster="objects: .clickable"
+    >
+      <!-- ASSETS -->
       <a-assets>
-        <a-asset-item id="rabbit-model" src="assets/rabbit/scene.gltf"></a-asset-item>
-        <a-asset-item id="delight-model" src="assets/delight/scene.gltf"></a-asset-item>
-        <a-asset-item id="madhatter-model" src="assets/madhatter/scene.gltf"></a-asset-item>
-        <a-asset-item id="mirror-model" src="assets/mirror/scene.gltf"></a-asset-item>
-        <a-asset-item id="crypt-model" src="assets/crypt/scene.gltf"></a-asset-item>
-        <a-asset-item id="throne-model" src="assets/throne/scene.gltf"></a-asset-item>
-    
+        <a-asset-item id="mirror-model" src="assets/mirror.glb"></a-asset-item>
+        <a-asset-item
+          id="table-model"
+          src="assets/tea_table.glb"
+        ></a-asset-item>
+        <a-asset-item id="cards-model" src="assets/cards.glb"> </a-asset-item>
+        <a-asset-item id="cake-model" src="assets/cake.glb"> </a-asset-item>
+        <a-asset-item
+          id="candles-model"
+          src="assets/candles.glb"
+        ></a-asset-item>
+        <a-asset-item id="potion-model" src="assets/potion.glb"> </a-asset-item>
+        <a-asset-item id="books-model" src="assets/books.glb"> </a-asset-item>
+        <a-asset-item
+          id="bookshelf-model"
+          src="assets/bookshelf.glb"
+        ></a-asset-item>
+        <a-asset-item id="chandelier-model" src="assets/chandelier.glb">
+        </a-asset-item>
+        <a-asset-item id="clock-model" src="assets/clock.glb"></a-asset-item>
+        <a-asset-item id="coach-model" src="assets/coach.glb"></a-asset-item>
+        <a-asset-item
+          id="fireplace-model"
+          src="assets/fireplace.glb"
+        ></a-asset-item>
+        <a-asset-item id="alice-model" src="assets/alice.glb"> </a-asset-item>
+        <a-asset-item id="mad-hatter-model" src="assets/mad_hatter.glb">
+        </a-asset-item>
       </a-assets>
 
-      <a-entity
-        id="rabbit"
-        gltf-model="#rabbit-model"
-        position="0 0 -3"
-        scale="0.01 0.01 0.01"
-        class="clickable">
-      </a-entity>
-      <a-entity
-          gltf-model="#delight-model"
-          position="-0.8 2 -3"
-          scale="0.5 0.5 0.5"
-          class="clickable">
-        </a-entity>
-       <a-entity
-        gltf-model="#madhatter-model"
-        position="2 1 -3"
-        scale="1 2 2"
-        rotation="0 -90 0 "
-        class="clickable">
-      </a-entity>
+      <!-- ENTITIES-->
       <a-entity
         gltf-model="#mirror-model"
-        position="0 0 -6.5"
-        scale="0.7 0.5 0.3"
-        class="clickable">
+        rotation="0 270 0"
+        position="0 1.3 -2.8"
+        scale="1.8 2.5 1.8"
+        class="clickable"
+      >
       </a-entity>
+
       <a-entity
-        gltf-model="#crypt-model"
-        position="-5 0 -5"
-        scale="19 19 19"
-        class="clickable">
+        gltf-model="#table-model"
+        rotation="0 180 0"
+        position="0 0.6 1"
+        scale="2 2 2"
+        class="clickable"
+      >
       </a-entity>
+
       <a-entity
-      gltf-model="#throne-model"
-      position="-2 0 -4"
-      scale="0.005 0.005 0.005"
-      class="clickable">
-    </a-entity>
+        gltf-model="#cards-model"
+        rotation="0 270 0"
+        position="0 1.4 1"
+        scale="0.3 0.3 0.3"
+        class="clickable"
+      >
+      </a-entity>
 
+      <a-entity
+        gltf-model="#cake-model"
+        rotation="0 270 0"
+        position="1 1 1"
+        scale="0.3 0.3 0.3"
+        class="clickable"
+      >
+      </a-entity>
 
-      <a-plane position="0 0 0" rotation="-90 0 0" width="14" height="14" color="#1a0f0a"></a-plane>
-      <a-plane position="0 4 0" rotation="90 0 0" width="14" height="14" color="#0d0820"></a-plane>
-      <a-plane position="0 2 -7" rotation="0 0 0" width="14" height="4" color="#12082a"></a-plane>
-      <a-plane position="0 2 7" rotation="0 180 0" width="14" height="4" color="#12082a"></a-plane>
-      <a-plane position="-7 2 0" rotation="0 90 0" width="14" height="4" color="#0f0a1f"></a-plane>
-      <a-plane position="7 2 0" rotation="0 -90 0" width="14" height="4" color="#0f0a1f"></a-plane>
+      <a-entity
+        gltf-model="#candles-model"
+        rotation="0 270 0"
+        position="1 0.8 2"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#potion-model"
+        rotation="0 270 0"
+        position="1.5 2 -2.8"
+        scale="0.5 1 1.2"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#books-model"
+        rotation="0 270 0"
+        position="1.5 0.4 -2.6"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#bookshelf-model"
+        rotation="0 270 0"
+        position="-1.5 1.3 -2.8"
+        scale="1.8 2.5 1.8"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#chandelier-model"
+        rotation="0 180 0"
+        position="0 3 0"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#coach-model"
+        rotation="0 180 0"
+        position="2.5 0.6 1"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#clock-model"
+        rotation="0 270 0"
+        position="-1.5 1.3 2"
+        scale="1.8 2.5 1.8"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#fireplace-model"
+        rotation="0 270 0"
+        position="-1.5 1.3 2"
+        scale="1.8 2.5 1.8"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#alice-model"
+        rotation="0 270 0"
+        position="1.5 1.3 2"
+        scale="1.8 2 1.8"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#mad-hatter-model"
+        rotation="0 180 0"
+        position="2.5 0.6 1"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+      <!-- ROOM -->
+
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="6"
+        height="6"
+        color="#1a0f0a"
+      ></a-plane>
+
+      <a-plane
+        position="0 3 0"
+        rotation="90 0 0"
+        width="6"
+        height="6"
+        color="#0d0820"
+      ></a-plane>
+
+      <a-plane
+        position="0 1.5 -3"
+        rotation="0 0 0"
+        width="6"
+        height="3"
+        color="#12082a"
+      ></a-plane>
+
+      <a-plane
+        position="0 1.5 3"
+        rotation="0 180 0"
+        width="6"
+        height="3"
+        color="#12082a"
+      ></a-plane>
+
+      <a-plane
+        position="-3 1.5 0"
+        rotation="0 90 0"
+        width="6"
+        height="3"
+        color="#0f0a1f"
+      ></a-plane>
+
+      <a-plane
+        position="3 1.5 0"
+        rotation="0 -90 0"
+        width="6"
+        height="3"
+        color="#0f0a1f"
+      ></a-plane>
 
       <a-light type="ambient" color="#ffffff" intensity="2"></a-light>
-      <a-light type="point" color="#6b2fa0" intensity="2" position="0 3 -3"></a-light>
-      <a-light type="point" color="#1a4a2e" intensity="3" position="-4 2 -3"></a-light>
+      <a-light
+        type="point"
+        color="#6b2fa0"
+        intensity="2"
+        position="0 3 -3"
+      ></a-light>
+      <a-light
+        type="point"
+        color="#1a4a2e"
+        intensity="3"
+        position="-4 2 -3"
+      ></a-light>
 
       <a-camera position="0 1.4 0">
-      <a-cursor color="#ffffff"></a-cursor>
+        <a-cursor color="#ffffff"></a-cursor>
       </a-camera>
-
     </a-scene>
   </body>
 </html>
