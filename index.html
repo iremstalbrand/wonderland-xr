@@ -43,7 +43,17 @@
       cursor="rayOrigin: mouse"
       raycaster="objects: .clickable"
     >
+      <a-assets>
+      <a-asset-item id="mushroom-bg" src="assets/mushroom-bg/mushroom_fields.glb"></a-asset-item>
+      </a-assets>
+
       <a-sky color="#0d1a0d"></a-sky>
+
+      <a-entity
+        gltf-model="#mushroom-bg"
+        position="0 0 0"
+        scale="200 200 200">
+      </a-entity>
 
       <a-plane
         position="0 0 0"
