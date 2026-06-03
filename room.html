@@ -41,6 +41,15 @@
         <a-asset-item id="alice-model" src="assets/alice.glb"> </a-asset-item>
         <a-asset-item id="mad-hatter-model" src="assets/mad_hatter.glb">
         </a-asset-item>
+        <a-asset-item id="cat-model" src="assets/cat.glb"> </a-asset-item>
+      </a-assets>
+        <a-asset-item id="window-model" src="assets/window.glb"> </a-asset-item>
+      </a-assets>
+          <a-asset-item id="curtains-model" src="assets/curtains.glb"> </a-asset-item>
+      </a-assets>
+           <a-asset-item id="side-table-model" src="assets/side_table.glb"> </a-asset-item>
+      </a-assets>
+             <a-asset-item id="rug-model" src="assets/rug.glb"> </a-asset-item>
       </a-assets>
 
       <!-- ENTITIES-->
@@ -169,6 +178,51 @@
         class="clickable"
       >
       </a-entity>
+
+      <a-entity
+        gltf-model="#cat-model"
+        rotation="0 180 0"
+        position="2.5 0.6 1"
+        scale="0.5 0.5 0.5"
+        class="clickable"
+      >
+      </a-entity>
+
+       <a-entity
+        gltf-model="#window-model"
+        rotation="0 360 0"
+        position="-2.9 1.8 0"
+        scale="1 1.5 1.4"
+        class="clickable"
+      >
+      </a-entity>
+
+       <a-entity
+        gltf-model="#curtains-model"
+        rotation="0 360 0"
+        position="-2.9 1.8 0"
+        scale="1 1.5 1.4"
+        class="clickable"
+      >
+      </a-entity>
+
+         <a-entity
+        gltf-model="#side-table-model"
+        rotation="0 270 0"
+        position="1 0.5 1"
+        scale="1 1 1"
+        class="clickable"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#rug-model"
+        rotation="0 30 0"
+        position="0 0.01 0"
+        scale="4 4 4"
+      >
+      </a-entity>
+
       <!-- ROOM -->
 
       <a-plane
