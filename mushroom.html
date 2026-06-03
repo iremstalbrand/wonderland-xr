@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantar Ormanı - Navy & Purple</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <style>body { margin: 0; overflow: hidden; background: #0d0b2e; }</style>
+</head>
+<body>
+
+<a-scene>
+    <a-assets>
+        <a-asset-item id="mantar-sahnesi" src="assets/mushroom-bg/mushroom.glb"></a-asset-item>
+    </a-assets>
+
+    <a-entity
+        gltf-model="#mantar-sahnesi"
+        position="0 -5 0"
+        scale="0.07 0.07 0.07">
+    </a-entity>
+
+    <a-entity light="type: ambient; color: #b39ddb; intensity: 1.5"></a-entity>
+    <a-entity light="type: directional; color: #ffffff; intensity: 1.8" position="10 35 -10"></a-entity>
+    <a-entity light="type: point; color: #9c27b0; intensity: 1.2" position="15 5 -15"></a-entity>
+    <a-entity light="type: point; color: #3f51b5; intensity: 1.0" position="-20 10 -10"></a-entity>
+
+    <a-entity id="bokeh-container"></a-entity>
+
+    <a-entity id="rig" position="0 15 80" rotation="0 0 0">
+        <a-camera look-controls wasd-controls="fly: true; acceleration: 15"></a-camera>
+    </a-entity>
+
+    <a-sky material="shader: flat; src: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 1 1%22 preserveAspectRatio=%22none%22><linearGradient id=%22g%22 gradientUnits=%22userSpaceOnUse%22 x1=%220%25%22 y1=%22100%25%22 x2=%220%25%22 y2=%220%25%22><stop offset=%220%25%22 stop-color=%22%230d0b2e%22/><stop offset=%2235%25%22 stop-color=%22%231a1560%22/><stop offset=%2265%25%22 stop-color=%22%234a1d96%22/><stop offset=%22100%25%22 stop-color=%22%237c3aed%22/></linearGradient><rect width=%221%22 height=%221%22 fill=%22url(%23g)%22/></svg>')"></a-sky>
+</a-scene>
+
+<script>
+AFRAME.registerComponent('bokeh-float', {
+    schema: { duration: { default: 8000 }, delay: { default: 0 }, amp: { default: 4 } },
+    init: function () {
+        var el = this.el;
+        var baseY = parseFloat(el.getAttribute('position').y);
+        var amp = this.data.amp;
+        var delay = this.data.delay;
+        var dur = this.data.duration;
+        this.tick = function (t) {
+            if (t < delay) return;
+            var p = ((t - delay) % dur) / dur;
+            var pos = el.getAttribute('position');
+            el.setAttribute('position', { x: pos.x, y: baseY + Math.sin(p * Math.PI * 2) * amp, z: pos.z });
+        };
+    }
+});
+
+window.addEventListener('load', function () {
+    var container = document.getElementById('bokeh-container');
+    var colors = [
+        '#8b5cf6','#a78bfa','#c4b5fd',
+        '#6366f1','#818cf8',
+        '#60a5fa','#93c5fd',
+        '#9333ea','#7c3aed'
+    ];
+    for (var i = 0; i < 60; i++) {
+        var sphere = document.createElement('a-sphere');
+        
+        // Balonlar mantarların üstünde ve çevresinde kümelendi
+        var x = -30 + Math.random() * 60;
+        var y = 5 + Math.random() * 35; 
+        var z = -30 + Math.random() * 60;
+        
+        var r = 0.3 + Math.random() * 0.8;
+        
+        var color = colors[Math.floor(Math.random() * colors.length)];
+        var opacity = 0.4 + Math.random() * 0.4;
+        
+        sphere.setAttribute('position', x + ' ' + y + ' ' + z);
+        sphere.setAttribute('radius', r);
+        sphere.setAttribute('material',
+            'color: ' + color + '; opacity: ' + opacity +
+            '; transparent: true; shader: flat');
+        
+        sphere.setAttribute('bokeh-float',
+            'duration: ' + (6000 + Math.random() * 8000) +
+            '; delay: ' + (Math.random() * 3000) +
+            '; amp: ' + (1 + Math.random() * 3));
+            
+        container.appendChild(sphere);
+    }
+});
+</script>
+
+</body>
+</html>
