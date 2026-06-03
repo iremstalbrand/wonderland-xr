@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <title>Wonderland XR -- Garden</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script>
       AFRAME.registerComponent("goto-room", {
         init: function () {
           this.el.addEventListener("mousedown", function () {
-            const overlay = document.getElementById("fade-overlay");
-            overlay.style.opacity = "1";
-            setTimeout(function () {
-              window.location.href = "room.html";
-            }, 1500);
+            window.location.href = "rabbithole.html";
           });
         },
       });
