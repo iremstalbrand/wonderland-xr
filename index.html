@@ -7,7 +7,7 @@
     <script>
       AFRAME.registerComponent("goto-room", {
         init: function () {
-          this.el.addEventListener("click", function () {
+          this.el.addEventListener("mousedown", function () {
             const overlay = document.getElementById("fade-overlay");
             overlay.style.opacity = "1";
             setTimeout(function () {
@@ -1128,7 +1128,9 @@
         distance="20"
       ></a-light>
 
-      <a-camera position="0 1.4 0"></a-camera>
+      <a-camera position="0 1.4 0">
+      <a-cursor color="#ffffff"></a-cursor>
+      </a-camera>
     </a-scene>
   </body>
 </html>
