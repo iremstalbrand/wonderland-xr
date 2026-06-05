@@ -18,26 +18,38 @@
           id="table-model"
           src="assets/tea_table.glb"
         ></a-asset-item>
-        <a-asset-item id="cake-model" src="assets/cake.glb"> </a-asset-item>
-ß
-        <a-asset-item id="potion-model" src="assets/potion.glb"> </a-asset-item>
-          id="bookshelf-model"
-          src="assets/bookshelf.glb"
-        ></a-asset-item>
-        <a-asset-item id="chandelier-model" src="assets/chandelier.glb">
-        </a-asset-item>
+        <a-asset-item id="cake-model" src="assets/cake.glb"></a-asset-item>
+        <a-asset-item id="potion-model" src="assets/potion.glb"></a-asset-item>
         <a-asset-item id="clock-model" src="assets/clock.glb"></a-asset-item>
-        <a-asset-item id="coach-model" src="assets/coach.glb"></a-asset-item>
-        <a-asset-item
-          id="fireplace-model"
-          src="assets/fireplace.glb"
-        ></a-asset-item>
-    
-             <a-asset-item id="rug-model" src="assets/rug.glb"> </a-asset-item>
+        <a-assets>
+          <img
+            id="taban-diffuse"
+            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/terrain/grasslight-big_nm.jpg"
+            style="display: none"
+          />
+          <img
+            id="kalas-color"
+            src="https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/cube/pisa/px.png"
+            style="display: none"
+          />
+          <img
+            id="wood-planks"
+            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/floors/FloorsCheckerboard_S_Diffuse.jpg"
+          />
+
+          <img
+            id="heavy-wood-color"
+            src="https://threejs.org/examples/textures/hardwood2_diffuse.jpg"
+          />
+          <img
+            id="heavy-wood-bump"
+            src="https://threejs.org/examples/textures/hardwood2_bump.jpg"
+          />
+        </a-assets>
       </a-assets>
 
       <!-- ENTITIES-->
-        <a-entity
+      <a-entity
         id="mirror"
         gltf-model="#mirror-model"
         rotation="0 270 0"
@@ -48,62 +60,40 @@
       </a-entity>
 
       <!--mirror interaction text-->
-      <a-text 
-      id="mirrorText"
-      value=""
-      position="0 2 -1"
-      align="center"
-      color="#d8c8ff"
-      width="2"
-      anchor="center"
-      visible="false"
+      <a-text
+        id="mirrorText"
+        value=""
+        position="0 2 -1"
+        align="center"
+        color="#d8c8ff"
+        width="2"
+        anchor="center"
+        visible="false"
       ></a-text>
 
       <a-entity
         gltf-model="#table-model"
         rotation="0 180 0"
-        position="0 0.574 0.204"
+        position="0 0.559 0.204"
         scale="2.215 2 2.215"
         class="clickable"
       >
       </a-entity>
 
-
       <a-entity
         gltf-model="#cake-model"
         rotation="0 270 0"
-        position="-2.028 1.808 -2.580"
+        position="-0.396 0.717 -0.643"
         scale="0.3 0.3 0.3"
         class="clickable"
       >
       </a-entity>
-
-ß
 
       <a-entity
         gltf-model="#potion-model"
         rotation="0 360 0"
         position="-2.878 1.850 0.044"
         scale="0.5 1 1.2"
-        class="clickable"
-      >
-      </a-entity>
- 
-
-      <a-entity
-        gltf-model="#chandelier-model"
-        rotation="0 180 0"
-        position="0 3 0"
-        scale="1 1 1"
-        class="clickable"
-      >
-      </a-entity>
-
-      <a-entity
-        gltf-model="#coach-model"
-        rotation="0 180 0"
-        position="2.500 0.493 1.996"
-        scale="1 1 1"
         class="clickable"
       >
       </a-entity>
@@ -117,23 +107,6 @@
       >
       </a-entity>
 
-      <a-entity
-        gltf-model="#fireplace-model"
-        rotation="0 270 0"
-        position="-1.500 1.256 -2.587"
-        scale="1.8 2.5 1.8"
-        class="clickable"
-      >
-      </a-entity>
-
-      <a-entity
-        gltf-model="#rug-model"
-        rotation="0 30 0"
-        position="0 0.133 0"
-        scale="3.5 4 3.5"
-      >
-      </a-entity>
-
       <!-- ROOM -->
 
       <a-plane
@@ -141,7 +114,16 @@
         rotation="-90 0 0"
         width="6"
         height="6"
-        color="#1a0f0a"
+        material="
+          src: #heavy-wood-color; 
+          color: #5c3a21;
+          bumpMap: #heavy-wood-bump; 
+          bumpScale: 0.25;
+          ambientOcclusionMap: #heavy-wood-bump;
+          ambientOcclusionMapIntensity: 2.0;
+          roughness: 0.9; 
+          metalness: 0.0;
+          repeat: 3.5 6;"
       ></a-plane>
 
       <a-plane
@@ -184,18 +166,31 @@
         color="#0f0a1f"
       ></a-plane>
 
-      <a-light type="ambient" color="#ffffff" intensity="2"></a-light>
+      <a-light type="ambient" color="#1a233a" intensity="0.8"></a-light>
+
       <a-light
         type="point"
-        color="#6b2fa0"
-        intensity="2"
-        position="0 3 -3"
+        color="#d6e4ff"
+        intensity="2.0"
+        position="0 2.9 0"
+        distance="8"
       ></a-light>
+
       <a-light
         type="point"
-        color="#1a4a2e"
-        intensity="3"
-        position="-4 2 -3"
+        color="#4effb7"
+        intensity="1.8"
+        position="0 2.2 0.5"
+        distance="6"
+        castShadow="true"
+      ></a-light>
+
+      <a-light
+        type="point"
+        color="#4a1a6d"
+        intensity="1.5"
+        position="0 1.5 -2.0"
+        distance="5"
       ></a-light>
 
       <a-camera position="0 1.4 0">
