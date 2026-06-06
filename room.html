@@ -21,7 +21,7 @@
         <a-asset-item id="cake-model" src="assets/cake.glb"></a-asset-item>
         <a-asset-item id="potion-model" src="assets/potion.glb"></a-asset-item>
         <a-asset-item id="clock-model" src="assets/clock.glb"></a-asset-item>
-        <a-assets>
+        
           <img
             id="taban-diffuse"
             src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/terrain/grasslight-big_nm.jpg"
@@ -49,15 +49,16 @@
       </a-assets>
 
       <!-- ENTITIES-->
+  
       <a-entity
         id="mirror"
         gltf-model="#mirror-model"
-        rotation="0 270 0"
-        position="0 1.265 -2.8"
-        scale="1.8 2.5 1.8"
+        rotation="0 0 0"
+        position="0 0.132 -2.491"
+        scale="0.4 0.409 0.400"
         class="clickable"
-      >
-      </a-entity>
+      ></a-entity>
+
 
       <!--mirror interaction text-->
       <a-text
@@ -71,41 +72,41 @@
         visible="false"
       ></a-text>
 
+
       <a-entity
         gltf-model="#table-model"
         rotation="0 180 0"
-        position="0 0.559 0.204"
-        scale="2.215 2 2.215"
-        class="clickable"
-      >
-      </a-entity>
+        position="0 0 0"
+        scale="1 1 1"
+      ></a-entity>
 
+    
       <a-entity
         gltf-model="#cake-model"
-        rotation="0 270 0"
-        position="-0.396 0.717 -0.643"
-        scale="0.3 0.3 0.3"
-        class="clickable"
-      >
-      </a-entity>
+        rotation="0 90 0"
+        position="-0.390 0.799 -0.140"
+        scale="0.001 0.001 0.001"
+      ></a-entity>
 
+      
       <a-entity
+        id="potion"
         gltf-model="#potion-model"
-        rotation="0 360 0"
-        position="-2.878 1.850 0.044"
-        scale="0.5 1 1.2"
+        rotation="0 0 0"
+        position="0.3 0.8 0"
+        scale="1.284 1.284 1.284"
         class="clickable"
-      >
-      </a-entity>
+      ></a-entity>
 
+      
       <a-entity
+        id="clock"
         gltf-model="#clock-model"
-        rotation="0 -130 0"
-        position="2.497 1.252 -2.523"
-        scale="1.8 2.5 1.8"
+        rotation="0 -90 0"
+        position="2.001 0.014 -2.624"
+        scale="0.159 0.159 0.159"
         class="clickable"
-      >
-      </a-entity>
+      ></a-entity>
 
       <!-- ROOM -->
 
