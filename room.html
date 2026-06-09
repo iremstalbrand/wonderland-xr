@@ -131,6 +131,24 @@
 
       
       
+      <!--potion bottle-->
+      <a-circle
+        id="potionGlow"
+        position="0.3 0.80 0"
+        rotation="-90 0 0"
+        radius="0.2"
+        color="#FFDA62"
+        opacity="0.15"
+
+        animation="
+          property: scale;
+          from: 1 1 1;
+          to: 1.08 1.08 1.08;
+          dir: alternate;
+          dur: 2000;
+          loop: true;"
+          
+      ></a-circle> 
       <a-entity
         id="potion"
         gltf-model="#potion-model"
