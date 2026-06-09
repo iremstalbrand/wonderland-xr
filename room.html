@@ -112,6 +112,7 @@
         look-at="#camera"
       ></a-text>
 
+      
 
       <a-entity
         gltf-model="#table-model"
@@ -128,30 +129,14 @@
         scale="0.001 0.001 0.001"
       ></a-entity>
 
-      <!--potion bottle-->
-      <a-circle
-        id="potionGlow"
-        position="0.3 0.80 0"
-        rotation="-90 0 0"
-        radius="0.2"
-        color="#FFDA62"
-        opacity="0.15"
-
-        animation="
-          property: scale;
-          from: 1 1 1;
-          to: 1.08 1.08 1.08;
-          dir: alternate;
-          dur: 2000;
-          loop: true;"
-      ></a-circle>
-
+      
+      
       <a-entity
         id="potion"
         gltf-model="#potion-model"
         rotation="0 0 0"
-        position="0.3 0.8 0"
-        scale="1.284 1.284 1.284"
+        position="0.3 0.932 0"
+        scale="0.303 0.271 0.237"
         class="clickable"
       ></a-entity>
 
