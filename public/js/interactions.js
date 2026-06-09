@@ -7,10 +7,17 @@ const clockGlow = document.querySelector('#clockGlow');
 const potion = document.querySelector('#potion');
 const potionText = document.querySelector('#potionText');
 const potionGlow = document.querySelector('#potionGlow');
+const clockSound = document.querySelector('#clockSound');
+const mirrorSound = document.querySelector('#mirrorSound');
+const potionSound = document.querySelector('#potionSound');
+const heartbeatSound = document.querySelector('#heartbeatSound');
 
 //mirror interaction
 
 mirror.addEventListener('click', () => {
+
+        mirrorSound.components.sound.playSound();
+
    
  if (mirrorText.getAttribute('visible') === true || mirrorText.getAttribute('visible') === 'true') {
         return;
@@ -57,6 +64,8 @@ mirror.addEventListener('click', () => {
 
 //clock interaction
 clock.addEventListener('click', () => {
+
+    clockSound.components.sound.playSound();
    
  if (clockText.getAttribute('visible') === true || clockText.getAttribute('visible') === 'true') {
         return;
@@ -125,6 +134,17 @@ potion.addEventListener('click', () => {
         true
     );
 
+   
+    potionSound.components.sound.playSound();
+
+    setTimeout(() => {
+        heartbeatSound.components.sound.playSound();
+    }, 600);
+
+    setTimeout(() => {
+    heartbeatSound.components.sound.stopSound();
+    }, 7000);
+
     setTimeout(() => {
         potionText.setAttribute(
             'value',
@@ -133,17 +153,8 @@ potion.addEventListener('click', () => {
     }, 3500);
 
     setTimeout(() => {
-
-        potionText.setAttribute(
-            'visible',
-            false
-        );
-
-        potionGlow.setAttribute(
-            'visible',
-            true
-        );
-
+        potionText.setAttribute('visible', false);
+        potionGlow.setAttribute('visible', true);
     }, 8000);
 
 });
