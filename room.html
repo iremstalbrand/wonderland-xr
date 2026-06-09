@@ -54,6 +54,22 @@
           preload="auto"
           ></audio>
 
+          <audio
+          id="clockAudio" src="assets/audio/clock-ticking.mp3"
+          ></audio>
+
+          <audio
+          id="mirrorAudio" src="assets/audio/mirror-clink.mp3"
+          ></audio>
+
+          <audio
+          id="potionAudio" src="assets/audio/bottle.mp3"
+          ></audio>
+
+          <audio
+          id="heartbeatAudio" src="assets/audio/heartbeat.mp3"
+          ></audio>
+
         </a-assets>
       </a-assets>
 
@@ -266,6 +282,7 @@
         <a-cursor color="#ffffff"></a-cursor>
       </a-camera>
 
+      <!--background sound-->
       <a-sound
       id="ambientAudio"
       sound="
@@ -276,6 +293,32 @@
       "
       ></a-sound>
 
+      <!--mirror clink sound-->
+      <a-sound
+      id="mirrorSound"
+      src="#mirrorAudio"
+      volume="0.5">
+      </a-sound>
+
+      <!--clock ticking sound-->
+      <a-sound
+      id="clockSound"
+      src="#clockAudio"
+      volume="0.5"
+      ></a-sound>
+
+      <!--potion bottle int sound-->
+      <a-sound
+      id="potionSound"
+      src="#potionAudio"
+      volume="1">
+      </a-sound>
+      
+      <a-sound
+      id="heartbeatSound" 
+      src="#heartbeatAudio"
+      volume="1"
+      ></a-sound>
 
     </a-scene>
 
