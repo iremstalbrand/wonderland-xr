@@ -26,7 +26,6 @@
     <a-scene
       fog="type: exponential; color: #1a0a2e; density: 0.04"
       raycaster="objects: .clickable"
-      cursor="rayOrigin: mouse"
     >
       <!-- ASSETS -->
 
@@ -403,6 +402,7 @@
       <a-camera id="camera" position="0 1.4 0">
         <a-cursor
           color="#ffffff"
+          fuse="true"
           fuse-timeout="1500"
           raycaster="objects: .clickable"
           animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
