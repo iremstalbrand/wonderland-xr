@@ -162,6 +162,7 @@ function checkAllInteracted() {
 
     infoFrame.setAttribute("visible", false);
     exitDoor.setAttribute("visible", true);
+    exitDoor.classList.add("clickable");
   }
 }
 
