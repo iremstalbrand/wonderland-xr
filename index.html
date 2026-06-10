@@ -30,18 +30,51 @@
   <body>
     <div id="fade-overlay"></div>
 
+<<<<<<< HEAD
     <a-scene fog="type: exponential; color: #0a1a05; density: 0.08">
       <a-assets>
         <a-asset-item id="flower-field" src="/assets/forest/flower_field_small.glb"></a-asset-item>
         <a-asset-item id="mushroom" src="/assets/forest/mushroom.glb"></a-asset-item>
         <a-asset-item id="flower" src="/assets/forest/flower_small.glb"></a-asset-item>
         <a-asset-item id="tree-small" src="/assets/forest/tree_small.glb"></a-asset-item>
+=======
+    <a-scene
+      fog="type: exponential; color: #0a1a05; density: 0.08"
+      cursor="rayOrigin: mouse"
+      raycaster="objects: .clickable"
+    >
+      <a-assets>
+      <a-asset-item id="mushroom-bg" src="assets/mushroom-bg/mushroom_fields.glb"></a-asset-item>
+>>>>>>> 3bd5675647369cbc05dd026329d843b14351dc04
       </a-assets>
 
       <a-sky color="#0d1a0d"></a-sky>
 
+<<<<<<< HEAD
       <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#1a3a10"></a-plane>
       <a-plane position="0 0.01 0" rotation="-90 0 0" width="26" height="26" color="#1f4512"></a-plane>
+=======
+      <a-entity
+        gltf-model="#mushroom-bg"
+        position="0 0 0"
+        scale="200 200 200">
+      </a-entity>
+
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="30"
+        height="30"
+        color="#1a3a10"
+      ></a-plane>
+      <a-plane
+        position="0 0.01 0"
+        rotation="-90 0 0"
+        width="26"
+        height="26"
+        color="#1f4512"
+      ></a-plane>
+>>>>>>> 3bd5675647369cbc05dd026329d843b14351dc04
 
       <!-- Tree -->
       <a-entity gltf-model="#tree-small" position="0 3 -6" scale="7 7 7" rotation="0 -90 0">
