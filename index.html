@@ -1,8 +1,9 @@
+cat > ~/wonderland-xr/index.html << 'EOF'
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Wonderland XR -- Garden</title>
+    <title>Wonderland XR -- Forest</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script>
@@ -30,65 +31,48 @@
   <body>
     <div id="fade-overlay"></div>
 
-<<<<<<< HEAD
-    <a-scene fog="type: exponential; color: #0a1a05; density: 0.08">
-      <a-assets>
-        <a-asset-item id="flower-field" src="/assets/forest/flower_field_small.glb"></a-asset-item>
-        <a-asset-item id="mushroom" src="/assets/forest/mushroom.glb"></a-asset-item>
-        <a-asset-item id="flower" src="/assets/forest/flower_small.glb"></a-asset-item>
-        <a-asset-item id="tree-small" src="/assets/forest/tree_small.glb"></a-asset-item>
-=======
     <a-scene
       fog="type: exponential; color: #0a1a05; density: 0.08"
       cursor="rayOrigin: mouse"
       raycaster="objects: .clickable"
     >
       <a-assets>
-      <a-asset-item id="mushroom-bg" src="assets/mushroom-bg/mushroom_fields.glb"></a-asset-item>
->>>>>>> 3bd5675647369cbc05dd026329d843b14351dc04
+        <a-asset-item id="flower-field" src="/assets/forest/flower_field_small.glb"></a-asset-item>
+        <a-asset-item id="mushroom" src="/assets/forest/mushroom.glb"></a-asset-item>
+        <a-asset-item id="flower" src="/assets/forest/flower_small.glb"></a-asset-item>
+        <a-asset-item id="tree-small" src="/assets/forest/tree_small.glb"></a-asset-item>
       </a-assets>
+
+      <a-text
+        id="introText"
+        value="Look for the way down."
+        position="0 1.8 -2"
+        align="center"
+        color="#e8dcc4"
+        width="3"
+        anchor="center"
+        opacity="1"
+        animation="property: opacity; from: 1; to: 0; dur: 3000; delay: 4000; easing: easeInOutQuad"
+      >
+      </a-text>
 
       <a-sky color="#0d1a0d"></a-sky>
 
-<<<<<<< HEAD
       <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#1a3a10"></a-plane>
       <a-plane position="0 0.01 0" rotation="-90 0 0" width="26" height="26" color="#1f4512"></a-plane>
-=======
-      <a-entity
-        gltf-model="#mushroom-bg"
-        position="0 0 0"
-        scale="200 200 200">
-      </a-entity>
-
-      <a-plane
-        position="0 0 0"
-        rotation="-90 0 0"
-        width="30"
-        height="30"
-        color="#1a3a10"
-      ></a-plane>
-      <a-plane
-        position="0 0.01 0"
-        rotation="-90 0 0"
-        width="26"
-        height="26"
-        color="#1f4512"
-      ></a-plane>
->>>>>>> 3bd5675647369cbc05dd026329d843b14351dc04
 
       <!-- Tree -->
       <a-entity gltf-model="#tree-small" position="0 3 -6" scale="7 7 7" rotation="0 -90 0">
         <a-sphere radius="3" position="0 0 0" opacity="0" class="clickable" goto-room></a-sphere>
       </a-entity>
 
-      <!-- Mushrooms (9 adet) -->
+      <!-- Mushrooms -->
       <a-entity gltf-model="#mushroom" position="-2 1 -3.6" scale="2.5 2.5 2.5" rotation="0 20 0"></a-entity>
       <a-entity gltf-model="#mushroom" position="-4 1 -3" scale="1.8 1.8 1.8" rotation="0 90 0"></a-entity>
       <a-entity gltf-model="#mushroom" position="4 1 -3" scale="1.8 1.8 1.8" rotation="0 -60 0"></a-entity>
       <a-entity gltf-model="#mushroom" position="3.2 1 -5" scale="1.6 1.6 1.6" rotation="0 45 0"></a-entity>
       <a-entity gltf-model="#mushroom" position="4 1 -4.5" scale="1.2 1.2 1.2" rotation="0 60 0"></a-entity>
       <a-entity gltf-model="#mushroom" position="-1.8 1 -1.8" scale="0.4 0.4 0.4" rotation="0 -45 0"></a-entity>
-     
 
       <!-- Flower -->
       <a-entity gltf-model="#flower" position="-1.5 0.3 -3" rotation="0 -45 0" scale="1 1 1"></a-entity>
@@ -96,7 +80,7 @@
       <!-- Flower Field -->
       <a-entity gltf-model="#flower-field" position="2 0.15 -3" scale="2 2 2" rotation="0 110 0"></a-entity>
 
-      <!-- Background trees (primitive) -->
+      <!-- Background trees -->
       <a-entity position="-5 0 -8"><a-cylinder color="#2a1505" radius="0.3" height="6" position="0 3 0" segments-radial="6"></a-cylinder><a-sphere color="#1a3a0a" radius="2" position="0 6 0" scale="1 1.2 1"></a-sphere><a-sphere color="#1f4510" radius="1.5" position="0.7 5 0.3"></a-sphere><a-sphere color="#163008" radius="1.3" position="-0.5 5.5 -0.2"></a-sphere></a-entity>
       <a-entity position="-2 0 -8.5"><a-cylinder color="#251004" radius="0.25" height="5.5" position="0 2.75 0" segments-radial="6"></a-cylinder><a-sphere color="#1a3a0a" radius="1.8" position="0 5.5 0" scale="1 1.1 1"></a-sphere><a-sphere color="#1f4510" radius="1.3" position="0.5 4.8 0.2"></a-sphere></a-entity>
       <a-entity position="1 0 -9"><a-cylinder color="#2a1505" radius="0.28" height="6.5" position="0 3.25 0" segments-radial="6"></a-cylinder><a-sphere color="#163008" radius="2" position="0 6.5 0" scale="1 1.2 1"></a-sphere><a-sphere color="#1a3a0a" radius="1.5" position="-0.5 5.8 0.3"></a-sphere></a-entity>
@@ -125,3 +109,4 @@
     </a-scene>
   </body>
 </html>
+EOF
