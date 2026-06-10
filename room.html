@@ -29,6 +29,7 @@
       cursor="rayOrigin: mouse"
     >
       <!-- ASSETS -->
+
       <a-assets>
         <a-asset-item id="mirror-model" src="assets/mirror.glb"></a-asset-item>
         <a-asset-item
@@ -63,6 +64,7 @@
           id="heavy-wood-bump"
           src="https://threejs.org/examples/textures/hardwood2_bump.jpg"
         />
+        <img id="wallpaper" src="assets/wallpaper.png" />
 
         <audio
           id="ambientSound"
@@ -253,7 +255,6 @@
         position="-2.9 0 0"
         rotation="0 90 0"
         scale="1 1 1"
-        class="clickable"
         visible="false"
       >
       </a-entity>
@@ -282,7 +283,6 @@
         rotation="90 0 0"
         width="6"
         height="6"
-        color="#0d0820"
       ></a-plane>
 
       <a-plane
@@ -290,7 +290,7 @@
         rotation="0 0 0"
         width="6"
         height="3"
-        color="#12082a"
+        material="src: #wallpaper; repeat: 2 1"
       ></a-plane>
 
       <a-plane
@@ -298,7 +298,7 @@
         rotation="0 180 0"
         width="6"
         height="3"
-        color="#12082a"
+        material="src: #wallpaper; repeat: 2 1"
       ></a-plane>
 
       <a-plane
@@ -306,7 +306,15 @@
         rotation="0 90 0"
         width="6"
         height="3"
-        color="#0f0a1f"
+        material="src: #wallpaper; repeat: 2 1"
+      ></a-plane>
+
+      <a-plane
+        position="3 1.5 0"
+        rotation="0 -90 0"
+        width="6"
+        height="3"
+        material="src: #wallpaper; repeat: 2 1"
       ></a-plane>
 
       <!-- INFO FRAME ON LEFT WALL -->
@@ -335,14 +343,6 @@
         >
         </a-text>
       </a-entity>
-
-      <a-plane
-        position="3 1.5 0"
-        rotation="0 -90 0"
-        width="6"
-        height="3"
-        color="#0f0a1f"
-      ></a-plane>
 
       <a-light type="ambient" color="#1a233a" intensity="0.8"></a-light>
 
