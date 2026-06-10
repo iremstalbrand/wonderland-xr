@@ -74,21 +74,21 @@
       </a-assets>
 
       <!-- ENTITIES-->
-      <a-circle
-        id="mirrorGlow"
-        position="0 1.3 -2.95"
-        radius="0.9"
-        color="#FFDA62"
-        opacity="0.15"
+      <a-ring
+      id="mirrorGlow"
+      position="0 1.3 -2.95"
+      radius-inner="0.85"
+      radius-outer="0.95"
+      color="#ffffff"
+      opacity="0.3"
 
-        animation="
+      animation="
         property: scale;
         from: 1 1 1;
-        to: 1.08 1.08 1.08;
-        dir: alternate;
-        dur: 2000;
+        to: 1.2 1.2 1.2;
+        dur: 2500;
         loop: true;">
-        </a-circle>
+      </a-ring>
 
       <a-entity
         id="mirror"
@@ -101,12 +101,15 @@
 
 
       <!--mirror interaction text-->
+      
       <a-text
         id="mirrorText"
         value=""
-        position="0 2 -1"
-        color="#d8c8ff"
-        width="2"
+        position="0 1.4 -2.2"
+        align="center"
+        color="#FFFFFF"
+        width="2.5"
+        scale="1.5 1.5 1.5"
         anchor="center"
         visible="false"
         look-at="#camera"
@@ -121,24 +124,59 @@
         scale="1 1 1"
       ></a-entity>
 
-    
+    <!--cake interaction-->
+
+      <a-ring
+    id="cakeGlow"
+    position="-0.39 0.81 -0.14"
+    rotation="-90 0 0"
+    radius-inner="0.25"
+    radius-outer="0.32"
+    color="#ffffff"
+    opacity="0.3"
+
+    animation="
+      property: scale;
+      from: 1 1 1;
+      to: 1.2 1.2 1.2;
+      dur: 2500;
+      loop: true;">
+      </a-ring>
+
+        <a-text
+        id="cakeText"
+        value=""
+        position="-0.4 2 -1"
+        align="center"
+        color="#FFFFFF"
+        scale="1.5 1.5 1.5"
+        width="2"
+        anchor="center"
+        visible="false"
+        look-at="#camera"
+         ></a-text>
+
+
       <a-entity
+      id="cake"
         gltf-model="#cake-model"
         rotation="0 90 0"
         position="-0.390 0.799 -0.140"
         scale="0.001 0.001 0.001"
+        class="clickable"
       ></a-entity>
 
       
       
       <!--potion bottle-->
-      <a-circle
-        id="potionGlow"
-        position="0.3 0.80 0"
-        rotation="-90 0 0"
-        radius="0.2"
-        color="#FFDA62"
-        opacity="0.15"
+        <a-ring
+      id="potionGlow"
+      position="0.3 0.81 0"
+      rotation="-90 0 0"
+      radius-inner="0.18"
+      radius-outer="0.24"
+      color="#ffffff"
+      opacity="0.3"
 
         animation="
           property: scale;
@@ -163,7 +201,8 @@
         value=""
         position="0.3 2 -1"
         align="center"
-        color="#d8c8ff"
+        scale="1.5 1.5 1.5"
+        color="#ffffff"
         width="2"
         anchor="center"
         visible="false"
@@ -171,21 +210,21 @@
       ></a-text>
 
       <!--clock-->
-      <a-circle
-        id="clockGlow"
-        position="2 1.2 -2.624"
-        radius="0.8"
-        color="#FFDA62"
-        opacity="0.15"
+      <a-ring
+      id="clockGlow"
+      position="2 1.2 -2.624"
+      radius-inner="0.75"
+      radius-outer="0.85"
+      color="#ffffff"
+      opacity="0.3"
 
-        animation="
-          property: scale;
-          from: 1 1 1;
-          to: 1.08 1.08 1.08;
-          dir: alternate;
-          dur: 2000;
-          loop: true;"
-      ></a-circle>
+      animation="
+        property: scale;
+        from: 1 1 1;
+        to: 1.2 1.2 1.2;
+        dur: 2500;
+        loop: true;">
+    </a-ring>
 
       <a-entity
         id="clock"
@@ -199,9 +238,10 @@
       <a-text
         id="clockText"
         value=""
-        position="2 2 -2.2"
+        position="2 1.6 -2.2"
         align="center"
-        color="#d8c8ff"
+        scale="1.5 1.5 1.5"
+        color="#ffffff"
         width="2"
         anchor="center"
         visible="false"
@@ -322,6 +362,7 @@
       <a-sound
       id="clockSound"
       src="#clockAudio"
+      loop="true"
       volume="0.5"
       ></a-sound>
 
@@ -336,6 +377,7 @@
       id="heartbeatSound" 
       src="#heartbeatAudio"
       volume="1"
+      loop="true"
       ></a-sound>
 
     </a-scene>

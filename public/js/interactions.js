@@ -1,3 +1,4 @@
+
 const mirror = document.querySelector('#mirror');
 const mirrorText = document.querySelector('#mirrorText');
 const mirrorGlow = document.querySelector('#mirrorGlow');
@@ -11,6 +12,9 @@ const clockSound = document.querySelector('#clockSound');
 const mirrorSound = document.querySelector('#mirrorSound');
 const potionSound = document.querySelector('#potionSound');
 const heartbeatSound = document.querySelector('#heartbeatSound');
+const cake = document.querySelector('#cake');
+const cakeText = document.querySelector('#cakeText');
+const cakeGlow = document.querySelector('#cakeGlow');
 
 //mirror interaction
 
@@ -54,11 +58,7 @@ mirror.addEventListener('click', () => {
             false
         );
 
-        mirrorGlow.setAttribute(
-            'visible',
-             true);
-
-    }, 8000);
+    }, 12000);
 
 });
 
@@ -66,6 +66,10 @@ mirror.addEventListener('click', () => {
 clock.addEventListener('click', () => {
 
     clockSound.components.sound.playSound();
+
+    setTimeout(() => {
+    clockSound.components.sound.stopSound();
+}, 12000);
    
  if (clockText.getAttribute('visible') === true || clockText.getAttribute('visible') === 'true') {
         return;
@@ -99,13 +103,9 @@ clock.addEventListener('click', () => {
             false
         );
 
-        clockGlow.setAttribute(
-            'visible',
-            true
+        
 
-        );
-
-    }, 8000);
+    }, 12000);
 
 });
 
@@ -143,7 +143,7 @@ potion.addEventListener('click', () => {
 
     setTimeout(() => {
     heartbeatSound.components.sound.stopSound();
-    }, 7000);
+    }, 12000);
 
     setTimeout(() => {
         potionText.setAttribute(
@@ -154,8 +154,7 @@ potion.addEventListener('click', () => {
 
     setTimeout(() => {
         potionText.setAttribute('visible', false);
-        potionGlow.setAttribute('visible', true);
-    }, 8000);
+    }, 12000);
 
 });
 
@@ -168,3 +167,50 @@ document.addEventListener(
   },
   { once: true }
 );
+
+//cake interaction
+cake.addEventListener('click', () => {
+
+
+
+    if (
+        cakeText.getAttribute('visible') === true ||
+        cakeText.getAttribute('visible') === 'true'
+    ) {
+        return;
+    }
+
+    cakeGlow.setAttribute(
+        'visible',
+        false
+    );
+
+    cakeText.setAttribute(
+        'value',
+        'Eat me!'
+    );
+
+    cakeText.setAttribute(
+        'visible',
+        true
+    );
+
+    setTimeout(() => {
+        cakeText.setAttribute(
+            'value',
+            'Eat me!\n\nNo one can tell you what happens next.'
+        );
+    }, 3500);
+
+    setTimeout(() => {
+
+        cakeText.setAttribute(
+            'visible',
+            false
+        );
+
+       
+
+    }, 12000);
+
+});
