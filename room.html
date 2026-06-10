@@ -4,27 +4,29 @@
     <meta charset="UTF-8" />
     <title>Wonderland XR</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
- <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
-
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
   </head>
   <body>
-
-    <div id="fadeOverlay" style="
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-      pointer-events: none;
-      z-index: 9999;
-    "></div>
+    <div
+      id="fadeOverlay"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0;
+        transition: opacity 1.5s ease;
+        pointer-events: none;
+        z-index: 9999;
+      "
+    ></div>
 
     <a-scene
       fog="type: exponential; color: #1a0a2e; density: 0.04"
       raycaster="objects: .clickable"
+      cursor="rayOrigin: mouse"
     >
       <!-- ASSETS -->
       <a-assets>
@@ -37,71 +39,61 @@
         <a-asset-item id="potion-model" src="assets/potion.glb"></a-asset-item>
         <a-asset-item id="clock-model" src="assets/clock.glb"></a-asset-item>
         <a-asset-item id="door-model" src="assets/door.glb"></a-asset-item>
-        
-          <img
-            id="taban-diffuse"
-            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/terrain/grasslight-big_nm.jpg"
-            style="display: none"
-          />
-          <img
-            id="kalas-color"
-            src="https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/cube/pisa/px.png"
-            style="display: none"
-          />
-          <img
-            id="wood-planks"
-            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/floors/FloorsCheckerboard_S_Diffuse.jpg"
-          />
 
-          <img
-            id="heavy-wood-color"
-            src="https://threejs.org/examples/textures/hardwood2_diffuse.jpg"
-          />
-          <img
-            id="heavy-wood-bump"
-            src="https://threejs.org/examples/textures/hardwood2_bump.jpg"
-          />
+        <img
+          id="taban-diffuse"
+          src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/terrain/grasslight-big_nm.jpg"
+          style="display: none"
+        />
+        <img
+          id="kalas-color"
+          src="https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/cube/pisa/px.png"
+          style="display: none"
+        />
+        <img
+          id="wood-planks"
+          src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/floors/FloorsCheckerboard_S_Diffuse.jpg"
+        />
 
-          <audio
+        <img
+          id="heavy-wood-color"
+          src="https://threejs.org/examples/textures/hardwood2_diffuse.jpg"
+        />
+        <img
+          id="heavy-wood-bump"
+          src="https://threejs.org/examples/textures/hardwood2_bump.jpg"
+        />
+
+        <audio
           id="ambientSound"
           src="assets/audio/wind-ambience.wav"
           preload="auto"
-          ></audio>
+        ></audio>
 
-          <audio
-          id="clockAudio" src="assets/audio/clock-ticking.mp3"
-          ></audio>
+        <audio id="clockAudio" src="assets/audio/clock-ticking.mp3"></audio>
 
-          <audio
-          id="mirrorAudio" src="assets/audio/mirror-clink.mp3"
-          ></audio>
+        <audio id="mirrorAudio" src="assets/audio/mirror-clink.mp3"></audio>
 
-          <audio
-          id="potionAudio" src="assets/audio/bottle.mp3"
-          ></audio>
+        <audio id="potionAudio" src="assets/audio/bottle.mp3"></audio>
 
-          <audio
-          id="heartbeatAudio" src="assets/audio/heartbeat.mp3"
-          ></audio>
-
-        </a-assets>
+        <audio id="heartbeatAudio" src="assets/audio/heartbeat.mp3"></audio>
       </a-assets>
 
       <!-- ENTITIES-->
       <a-ring
-      id="mirrorGlow"
-      position="-0.644 1.3 -2.95"
-      radius-inner="0.85"
-      radius-outer="0.95"
-      color="#ffffff"
-      opacity="0.3"
-
-      animation="
+        id="mirrorGlow"
+        position="-0.644 1.3 -2.95"
+        radius-inner="0.85"
+        radius-outer="0.95"
+        color="#ffffff"
+        opacity="0.3"
+        animation="
         property: scale;
         from: 1 1 1;
         to: 1.2 1.2 1.2;
         dur: 2500;
-        loop: true;">
+        loop: true;"
+      >
       </a-ring>
 
       <a-entity
@@ -113,9 +105,8 @@
         class="clickable"
       ></a-entity>
 
-
       <!--mirror interaction text-->
-      
+
       <a-text
         id="mirrorText"
         value=""
@@ -129,8 +120,6 @@
         look-at="#camera"
       ></a-text>
 
-      
-
       <a-entity
         gltf-model="#table-model"
         rotation="0 180 0"
@@ -138,29 +127,29 @@
         scale="1 1 1"
       ></a-entity>
 
-    <!--cake interaction-->
+      <!--cake interaction-->
 
       <a-ring
-    id="cakeGlow"
-    position="-0.39 0.81 1.642"
-    rotation="-90 0 0"
-    radius-inner="0.25"
-    radius-outer="0.32"
-    color="#ffffff"
-    opacity="0.3"
-
-    animation="
+        id="cakeGlow"
+        position="-0.39 0.81 1.642"
+        rotation="-90 0 0"
+        radius-inner="0.25"
+        radius-outer="0.32"
+        color="#ffffff"
+        opacity="0.3"
+        animation="
       property: scale;
       from: 1 1 1;
       to: 1.2 1.2 1.2;
       dur: 2500;
-      loop: true;">
+      loop: true;"
+      >
       </a-ring>
 
-        <a-text
+      <a-text
         id="cakeText"
         value=""
-        position="-0.4 2 -1"
+        position="-0.39 1.5 1.642"
         align="center"
         color="#FFFFFF"
         scale="1.5 1.5 1.5"
@@ -168,11 +157,10 @@
         anchor="center"
         visible="false"
         look-at="#camera"
-         ></a-text>
-
+      ></a-text>
 
       <a-entity
-      id="cake"
+        id="cake"
         gltf-model="#cake-model"
         rotation="0 90 0"
         position="-0.390 0.799 1.642"
@@ -180,18 +168,15 @@
         class="clickable"
       ></a-entity>
 
-      
-      
       <!--potion bottle-->
-        <a-ring
-      id="potionGlow"
-      position="0.3 0.81 1.642"
-      rotation="-90 0 0"
-      radius-inner="0.18"
-      radius-outer="0.24"
-      color="#ffffff"
-      opacity="0.3"
-
+      <a-ring
+        id="potionGlow"
+        position="0.3 0.81 1.642"
+        rotation="-90 0 0"
+        radius-inner="0.18"
+        radius-outer="0.24"
+        color="#ffffff"
+        opacity="0.3"
         animation="
           property: scale;
           from: 1 1 1;
@@ -199,7 +184,6 @@
           dir: alternate;
           dur: 2000;
           loop: true;"
-          
       ></a-ring>
       <a-entity
         id="potion"
@@ -213,7 +197,7 @@
       <a-text
         id="potionText"
         value=""
-        position="0.3 2 -1"
+        position="0.3 1.5 1.643"
         align="center"
         scale="1.5 1.5 1.5"
         color="#ffffff"
@@ -225,20 +209,20 @@
 
       <!--clock-->
       <a-ring
-      id="clockGlow"
-      position="2 1.2 -2.624"
-      radius-inner="0.75"
-      radius-outer="0.85"
-      color="#ffffff"
-      opacity="0.3"
-
-      animation="
+        id="clockGlow"
+        position="2 1.2 -2.624"
+        radius-inner="0.75"
+        radius-outer="0.85"
+        color="#ffffff"
+        opacity="0.3"
+        animation="
         property: scale;
         from: 1 1 1;
         to: 1.2 1.2 1.2;
         dur: 2500;
-        loop: true;">
-    </a-ring>
+        loop: true;"
+      >
+      </a-ring>
 
       <a-entity
         id="clock"
@@ -252,7 +236,7 @@
       <a-text
         id="clockText"
         value=""
-        position="2 1.6 -2.2"
+        position="2 1.6 -2"
         align="center"
         scale="1.5 1.5 1.5"
         color="#ffffff"
@@ -260,7 +244,6 @@
         anchor="center"
         visible="false"
         look-at="#camera"
-
       ></a-text>
 
       <!-- EXIT DOOR ON LEFT WALL (hidden at start) -->
@@ -271,7 +254,8 @@
         rotation="0 90 0"
         scale="1 1 1"
         class="clickable"
-        visible="false">
+        visible="false"
+      >
       </a-entity>
 
       <!-- ROOM -->
@@ -325,26 +309,21 @@
         color="#0f0a1f"
       ></a-plane>
 
-<!-- INFO FRAME ON LEFT WALL -->
+      <!-- INFO FRAME ON LEFT WALL -->
       <a-entity id="infoFrame" position="-2.9 1.8 0" rotation="0 90 0">
-        
         <!-- Wood frame (deeper, with thickness) -->
-        <a-box
-          width="1.6"
-          height="0.6"
-          depth="0.08"
-          color="#1f1208">
-        </a-box>
-        
+        <a-box width="1.6" height="0.6" depth="0.08" color="#1f1208"> </a-box>
+
         <!-- Black background (slightly raised from frame) -->
         <a-box
           position="0 0 0.05"
           width="1.4"
           height="0.45"
           depth="0.02"
-          color="#000000">
+          color="#000000"
+        >
         </a-box>
-        
+
         <!-- White text -->
         <a-text
           value="When all four are seen,\nthe way out appears."
@@ -352,9 +331,9 @@
           align="center"
           color="#ffffff"
           width="1.5"
-          anchor="center">
+          anchor="center"
+        >
         </a-text>
-        
       </a-entity>
 
       <a-plane
@@ -393,20 +372,20 @@
       ></a-light>
 
       <a-camera id="camera" position="0 1.4 0">
-           <a-cursor
+        <a-cursor
           color="#ffffff"
-          fuse="true"
           fuse-timeout="1500"
           raycaster="objects: .clickable"
           animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 1500; startEvents: fusing">
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 1500; startEvents: fusing"
+        >
         </a-cursor>
       </a-camera>
 
       <!--background sound-->
       <a-sound
-      id="ambientAudio"
-      sound="
+        id="ambientAudio"
+        sound="
       src: #ambientSound;
       autoplay: true;
       loop: true;
@@ -415,34 +394,25 @@
       ></a-sound>
 
       <!--mirror clink sound-->
-      <a-sound
-      id="mirrorSound"
-      src="#mirrorAudio"
-      volume="0.5">
-      </a-sound>
+      <a-sound id="mirrorSound" src="#mirrorAudio" volume="0.5"> </a-sound>
 
       <!--clock ticking sound-->
       <a-sound
-      id="clockSound"
-      src="#clockAudio"
-      loop="true"
-      volume="0.5"
+        id="clockSound"
+        src="#clockAudio"
+        loop="true"
+        volume="0.5"
       ></a-sound>
 
       <!--potion bottle int sound-->
-      <a-sound
-      id="potionSound"
-      src="#potionAudio"
-      volume="1">
-      </a-sound>
-      
-      <a-sound
-      id="heartbeatSound" 
-      src="#heartbeatAudio"
-      volume="1"
-      loop="true"
-      ></a-sound>
+      <a-sound id="potionSound" src="#potionAudio" volume="1"> </a-sound>
 
+      <a-sound
+        id="heartbeatSound"
+        src="#heartbeatAudio"
+        volume="1"
+        loop="true"
+      ></a-sound>
     </a-scene>
 
     <script src="js/interactions.js"></script>
