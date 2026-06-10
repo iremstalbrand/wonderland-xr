@@ -1,4 +1,3 @@
-cat > ~/wonderland-xr/index.html << 'EOF'
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,8 +8,12 @@ cat > ~/wonderland-xr/index.html << 'EOF'
     <script>
       AFRAME.registerComponent("goto-room", {
         init: function () {
-          this.el.addEventListener("mousedown", function () {
-            window.location.href = "rabbithole.html";
+          this.el.addEventListener("click", function () {
+            const overlay = document.getElementById("fade-overlay");
+            overlay.style.opacity = "1";
+            setTimeout(() => {
+              window.location.href = "rabbithole.html";
+            }, 1500);
           });
         },
       });
@@ -31,11 +34,7 @@ cat > ~/wonderland-xr/index.html << 'EOF'
   <body>
     <div id="fade-overlay"></div>
 
-    <a-scene
-      fog="type: exponential; color: #0a1a05; density: 0.08"
-      cursor="rayOrigin: mouse"
-      raycaster="objects: .clickable"
-    >
+    <a-scene fog="type: exponential; color: #0a1a05; density: 0.08">
       <a-assets>
         <a-asset-item id="flower-field" src="/assets/forest/flower_field_small.glb"></a-asset-item>
         <a-asset-item id="mushroom" src="/assets/forest/mushroom.glb"></a-asset-item>
@@ -53,8 +52,7 @@ cat > ~/wonderland-xr/index.html << 'EOF'
         anchor="center"
         opacity="1"
         animation="property: opacity; from: 1; to: 0; dur: 3000; delay: 4000; easing: easeInOutQuad"
-      >
-      </a-text>
+      ></a-text>
 
       <a-sky color="#0d1a0d"></a-sky>
 
@@ -62,9 +60,16 @@ cat > ~/wonderland-xr/index.html << 'EOF'
       <a-plane position="0 0.01 0" rotation="-90 0 0" width="26" height="26" color="#1f4512"></a-plane>
 
       <!-- Tree -->
-      <a-entity gltf-model="#tree-small" position="0 3 -6" scale="7 7 7" rotation="0 -90 0">
-        <a-sphere radius="3" position="0 0 0" opacity="0" class="clickable" goto-room></a-sphere>
-      </a-entity>
+      <a-entity gltf-model="#tree-small" position="0 3 -6" scale="7 7 7" rotation="0 -90 0"></a-entity>
+
+      <!-- Portal trigger, separate from tree entity -->
+      <a-sphere
+        position="0 3 -6"
+        radius="3"
+        material="opacity: 0.01; transparent: true"
+        class="clickable"
+        goto-room
+      ></a-sphere>
 
       <!-- Mushrooms -->
       <a-entity gltf-model="#mushroom" position="-2 1 -3.6" scale="2.5 2.5 2.5" rotation="0 20 0"></a-entity>
@@ -104,9 +109,12 @@ cat > ~/wonderland-xr/index.html << 'EOF'
       <a-light type="point" color="#aaffaa" intensity="0.5" position="0 6 0" distance="20"></a-light>
 
       <a-camera position="0 1.4 0">
-        <a-cursor color="#ffffff" raycaster="objects: .clickable"></a-cursor>
+        <a-cursor
+          color="#ffffff"
+          fuse="false"
+          raycaster="objects: .clickable; far: 100"
+        ></a-cursor>
       </a-camera>
     </a-scene>
   </body>
 </html>
-EOF
