@@ -8,6 +8,20 @@
 
   </head>
   <body>
+
+    <div id="fadeOverlay" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      pointer-events: none;
+      z-index: 9999;
+    "></div>
+
     <a-scene
       fog="type: exponential; color: #1a0a2e; density: 0.04"
       cursor="rayOrigin: mouse"
@@ -23,6 +37,7 @@
         <a-asset-item id="cake-model" src="assets/cake.glb"></a-asset-item>
         <a-asset-item id="potion-model" src="assets/potion.glb"></a-asset-item>
         <a-asset-item id="clock-model" src="assets/clock.glb"></a-asset-item>
+        <a-asset-item id="door-model" src="assets/door.glb"></a-asset-item>
         
           <img
             id="taban-diffuse"
@@ -120,7 +135,7 @@
       <a-entity
         gltf-model="#table-model"
         rotation="0 180 0"
-        position="0 0 0"
+        position="0 0 1.642"
         scale="1 1 1"
       ></a-entity>
 
@@ -128,7 +143,7 @@
 
       <a-ring
     id="cakeGlow"
-    position="-0.39 0.81 -0.14"
+    position="-0.39 0.81 1.642"
     rotation="-90 0 0"
     radius-inner="0.25"
     radius-outer="0.32"
@@ -161,7 +176,7 @@
       id="cake"
         gltf-model="#cake-model"
         rotation="0 90 0"
-        position="-0.390 0.799 -0.140"
+        position="-0.390 0.799 1.642"
         scale="0.001 0.001 0.001"
         class="clickable"
       ></a-entity>
@@ -171,7 +186,7 @@
       <!--potion bottle-->
         <a-ring
       id="potionGlow"
-      position="0.3 0.81 0"
+      position="0.3 0.81 1.642"
       rotation="-90 0 0"
       radius-inner="0.18"
       radius-outer="0.24"
@@ -191,7 +206,7 @@
         id="potion"
         gltf-model="#potion-model"
         rotation="0 0 0"
-        position="0.3 0.932 0"
+        position="0.3 0.932 1.643"
         scale="0.303 0.271 0.237"
         class="clickable"
       ></a-entity>
@@ -249,6 +264,16 @@
 
       ></a-text>
 
+      <!-- EXIT DOOR ON LEFT WALL (hidden at start) -->
+      <a-entity
+        id="exitDoor"
+        gltf-model="#door-model"
+        position="-2.9 0 0"
+        rotation="0 90 0"
+        scale="1 1 1"
+        class="clickable"
+        visible="false">
+      </a-entity>
 
       <!-- ROOM -->
 
@@ -300,6 +325,38 @@
         height="3"
         color="#0f0a1f"
       ></a-plane>
+
+<!-- INFO FRAME ON LEFT WALL -->
+      <a-entity id="infoFrame" position="-2.9 1.8 0" rotation="0 90 0">
+        
+        <!-- Wood frame (deeper, with thickness) -->
+        <a-box
+          width="1.6"
+          height="0.6"
+          depth="0.08"
+          color="#1f1208">
+        </a-box>
+        
+        <!-- Black background (slightly raised from frame) -->
+        <a-box
+          position="0 0 0.05"
+          width="1.4"
+          height="0.45"
+          depth="0.02"
+          color="#000000">
+        </a-box>
+        
+        <!-- White text -->
+        <a-text
+          value="When all four are seen,\nthe way out appears."
+          position="0 0 0.07"
+          align="center"
+          color="#ffffff"
+          width="1.5"
+          anchor="center">
+        </a-text>
+        
+      </a-entity>
 
       <a-plane
         position="3 1.5 0"
