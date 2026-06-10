@@ -43,6 +43,19 @@
       cursor="rayOrigin: mouse"
       raycaster="objects: .clickable"
     >
+      <a-text
+        id="introText"
+        value="Look for the way down."
+        position="0 1.8 -2"
+        align="center"
+        color="#e8dcc4"
+        width="3"
+        anchor="center"
+        opacity="1"
+        animation="property: opacity; from: 1; to: 0; dur: 3000; delay: 4000; easing: easeInOutQuad"
+      >
+      </a-text>
+
       <a-sky color="#0d1a0d"></a-sky>
 
       <a-plane
@@ -69,6 +82,7 @@
           segments-radial="64"
           segments-tubular="16"
           rotation="90 0 0"
+          animation="property: scale; from: 1 1 1; to: 1.05 1.05 1.05; dur: 2000; dir: alternate; loop: true; easing: easeInOutSine"
         ></a-torus>
         <a-torus
           color="#2e0a4a"
@@ -99,6 +113,7 @@
           intensity="2"
           position="0 0.3 0"
           distance="3"
+          animation="property: intensity; from: 1.5; to: 3.5; dur: 2000; dir: alternate; loop: true; easing: easeInOutSine"
         ></a-light>
       </a-entity>
 
@@ -1126,7 +1141,7 @@
       ></a-light>
 
       <a-camera position="0 1.4 0">
-      <a-cursor color="#ffffff"></a-cursor>
+        <a-cursor color="#ffffff"></a-cursor>
       </a-camera>
     </a-scene>
   </body>
