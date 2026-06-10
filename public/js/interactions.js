@@ -193,6 +193,6 @@ exitDoor.addEventListener("click", () => {
   fadeOverlay.style.opacity = "1";
 
   setTimeout(() => {
-    window.location.href = "index.html";
+    window.location.replace("index.html");
   }, 1500);
 });
