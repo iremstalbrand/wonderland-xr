@@ -14,6 +14,7 @@ const heartbeatSound = document.querySelector("#heartbeatSound");
 const cake = document.querySelector("#cake");
 const cakeText = document.querySelector("#cakeText");
 const cakeGlow = document.querySelector("#cakeGlow");
+const cakeSound = document.querySelector("#cakeSound");
 
 //mirror interaction
 
@@ -126,7 +127,9 @@ document.addEventListener(
 );
 
 //cake interaction
-cake.addEventListener("click", () => {
+cake.addEventListener("click", () => { 
+   cakeSound.components.sound.playSound();
+
   if (
     cakeText.getAttribute("visible") === true ||
     cakeText.getAttribute("visible") === "true"
@@ -137,13 +140,13 @@ cake.addEventListener("click", () => {
   cakeGlow.setAttribute("visible", false);
 
   cakeText.setAttribute("value", "Eat me!");
-
   cakeText.setAttribute("visible", true);
 
-  setTimeout(() => {
+
+    setTimeout(() => {
     cakeText.setAttribute(
       "value",
-      "Eat me!\n\nNo one can tell you what happens next.",
+      "Eat me!\n\n You already know you will...",
     );
   }, 3500);
 

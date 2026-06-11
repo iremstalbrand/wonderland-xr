@@ -6,18 +6,39 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script>
-      AFRAME.registerComponent("goto-room", {
-        init: function () {
-          this.el.addEventListener("click", function () {
-            const overlay = document.getElementById("fade-overlay");
-            overlay.style.opacity = "1";
-            setTimeout(() => {
-              window.location.href = "rabbithole.html";
-            }, 1500);
-          });
-        },
-      });
+AFRAME.registerComponent("goto-room", {
+  init: function () {
+    this.el.addEventListener("click", function () {
+      const overlay = document.getElementById("fade-overlay");
+      const forestAudio = document.querySelector("#forestAudio");
+      const rabbitHoleAudio = document.querySelector("#rabbitHoleAudio");
+
+      rabbitHoleAudio.components.sound.playSound();
+
+      let volume = 0.2;
+
+      const fade = setInterval(() => {
+        volume -= 0.02;
+
+        forestAudio.setAttribute("sound", "volume", Math.max(volume, 0));
+
+        if (volume <= 0) {
+          clearInterval(fade);
+          forestAudio.components.sound.stopSound();
+        }
+      }, 100);
+
+      overlay.style.opacity = "1";
+
+      setTimeout(() => {
+        window.location.href = "rabbithole.html";
+      }, 2500);
+    });
+  },
+}); 
     </script>
+
+
     <style>
       #fade-overlay {
         position: fixed;
@@ -62,6 +83,19 @@
           id="sign-small"
           src="/assets/forest/sign_small.glb"
         ></a-asset-item>
+
+        <audio
+        id="forestSound"
+        src="assets/audio/garden-background.mp3"
+        preload="auto"
+        ></audio>
+
+        <audio
+        id="rabbitHoleSound"
+        src="assets/audio/rabbithole-shimmer.wav"
+        preload="auto"
+        ></audio>
+
       </a-assets>
 
       <a-text
@@ -530,6 +564,28 @@
           raycaster="objects: .clickable; far: 100"
         ></a-cursor>
       </a-camera>
+
+      <!--background music forest-->
+      <a-sound
+      id="forestAudio"
+      sound="
+      src: #forestSound;
+      loop: true;
+      volume: 0.2;
+      "
+      ></a-sound>
+
+      <a-sound
+        id="rabbitHoleAudio"
+        sound="
+        src: #rabbitHoleSound;
+         volume: 1;
+         "
+      ></a-sound>
+
     </a-scene>
+
+    <script src="js/forest.js"></script>
+
   </body>
 </html>
