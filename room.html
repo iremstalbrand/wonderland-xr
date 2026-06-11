@@ -107,6 +107,12 @@
           id="heartbeatAudio"
           src="https://res.cloudinary.com/dojkiz54j/video/upload/heartbeat_jcdkzd.mp3"
         ></audio>
+
+          <audio
+          id="cakeAudio"
+          src="assets/audio/chewing.wav"
+          ></audio>
+
       </a-assets>
 
       <!-- ENTITIES-->
@@ -179,7 +185,7 @@
       <a-text
         id="cakeText"
         value=""
-        position="-0.39 1.5 1.642"
+        position="-1.2 1.5 1.642"
         align="center"
         color="#FFFFFF"
         scale="1.5 1.5 1.5"
@@ -227,7 +233,7 @@
       <a-text
         id="potionText"
         value=""
-        position="0.3 1.5 1.643"
+        position="1.2 1.5 1.643"
         align="center"
         scale="1.5 1.5 1.5"
         color="#ffffff"
@@ -436,12 +442,21 @@
       <!--potion bottle int sound-->
       <a-sound id="potionSound" src="#potionAudio" volume="1"> </a-sound>
 
+      <!--heartbeat sound-->
       <a-sound
         id="heartbeatSound"
         src="#heartbeatAudio"
         volume="1"
         loop="true"
       ></a-sound>
+
+      <!--cake chewing sound-->
+      <a-sound
+      id="cakeSound"
+      src="#cakeAudio"
+      volume="1"
+      ></a-sound>
+
     </a-scene>
 
     <script src="js/interactions.js"></script>
