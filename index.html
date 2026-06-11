@@ -6,38 +6,37 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script>
-AFRAME.registerComponent("goto-room", {
-  init: function () {
-    this.el.addEventListener("click", function () {
-      const overlay = document.getElementById("fade-overlay");
-      const forestAudio = document.querySelector("#forestAudio");
-      const rabbitHoleAudio = document.querySelector("#rabbitHoleAudio");
+      AFRAME.registerComponent("goto-room", {
+        init: function () {
+          this.el.addEventListener("click", function () {
+            const overlay = document.getElementById("fade-overlay");
+            const forestAudio = document.querySelector("#forestAudio");
+            const rabbitHoleAudio = document.querySelector("#rabbitHoleAudio");
 
-      rabbitHoleAudio.components.sound.playSound();
+            rabbitHoleAudio.components.sound.playSound();
 
-      let volume = 0.2;
+            let volume = 0.2;
 
-      const fade = setInterval(() => {
-        volume -= 0.02;
+            const fade = setInterval(() => {
+              volume -= 0.02;
 
-        forestAudio.setAttribute("sound", "volume", Math.max(volume, 0));
+              forestAudio.setAttribute("sound", "volume", Math.max(volume, 0));
 
-        if (volume <= 0) {
-          clearInterval(fade);
-          forestAudio.components.sound.stopSound();
-        }
-      }, 100);
+              if (volume <= 0) {
+                clearInterval(fade);
+                forestAudio.components.sound.stopSound();
+              }
+            }, 100);
 
-      overlay.style.opacity = "1";
+            overlay.style.opacity = "1";
 
-      setTimeout(() => {
-        window.location.href = "rabbithole.html";
-      }, 2500);
-    });
-  },
-}); 
+            setTimeout(() => {
+              window.location.href = "rabbithole.html";
+            }, 2500);
+          });
+        },
+      });
     </script>
-
 
     <style>
       #fade-overlay {
@@ -61,7 +60,7 @@ AFRAME.registerComponent("goto-room", {
       <a-assets>
         <a-asset-item
           id="flower-field"
-          src="/assets/forest/flower_field_small.glb"
+          src="https://res.cloudinary.com/dojkiz54j/image/upload/flower_field_sodkst.glb"
         ></a-asset-item>
         <a-asset-item
           id="mushroom"
@@ -85,17 +84,16 @@ AFRAME.registerComponent("goto-room", {
         ></a-asset-item>
 
         <audio
-        id="forestSound"
-        src="assets/audio/garden-background.mp3"
-        preload="auto"
+          id="forestSound"
+          src="https://res.cloudinary.com/dojkiz54j/video/upload/garden-background_lzubms.mp3"
+          preload="auto"
         ></audio>
 
         <audio
-        id="rabbitHoleSound"
-        src="assets/audio/rabbithole-shimmer.wav"
-        preload="auto"
+          id="rabbitHoleSound"
+          src="https://res.cloudinary.com/dojkiz54j/video/upload/rabbithole-shimmer_ltpmte.wav"
+          preload="auto"
         ></audio>
-
       </a-assets>
 
       <a-text
@@ -567,8 +565,8 @@ AFRAME.registerComponent("goto-room", {
 
       <!--background music forest-->
       <a-sound
-      id="forestAudio"
-      sound="
+        id="forestAudio"
+        sound="
       src: #forestSound;
       loop: true;
       volume: 0.2;
@@ -582,10 +580,8 @@ AFRAME.registerComponent("goto-room", {
          volume: 1;
          "
       ></a-sound>
-
     </a-scene>
 
     <script src="js/forest.js"></script>
-
   </body>
 </html>
