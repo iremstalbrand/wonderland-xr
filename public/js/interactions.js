@@ -127,8 +127,8 @@ document.addEventListener(
 );
 
 //cake interaction
-cake.addEventListener("click", () => { 
-   cakeSound.components.sound.playSound();
+cake.addEventListener("click", () => {
+  cakeSound.components.sound.playSound();
 
   if (
     cakeText.getAttribute("visible") === true ||
@@ -142,12 +142,8 @@ cake.addEventListener("click", () => {
   cakeText.setAttribute("value", "Eat me!");
   cakeText.setAttribute("visible", true);
 
-
-    setTimeout(() => {
-    cakeText.setAttribute(
-      "value",
-      "Eat me!\n\n You already know you will...",
-    );
+  setTimeout(() => {
+    cakeText.setAttribute("value", "Eat me!\n\n You already know you will...");
   }, 3500);
 
   setTimeout(() => {
@@ -196,6 +192,6 @@ exitDoor.addEventListener("click", () => {
   fadeOverlay.style.opacity = "1";
 
   setTimeout(() => {
-    window.location.replace("index.html");
+    window.location.href = "index.html";
   }, 1500);
 });
